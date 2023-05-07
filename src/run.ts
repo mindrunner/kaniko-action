@@ -12,7 +12,7 @@ type Inputs = {
   pushRetry: string
   registryMirrors: string[]
   verbosity: string
-  kanikoArgs: string[]
+  kanikoArgs: string
   buildArgs: string[]
   context: string
   file: string
@@ -114,7 +114,7 @@ export const generateArgs = (inputs: Inputs, outputsDir: string): string[] => {
     args.push('--verbosity', inputs.verbosity)
   }
 
-  args.push(...inputs.kanikoArgs)
+  args.push(...inputs.kanikoArgs.split(" "))
   return args
 }
 
